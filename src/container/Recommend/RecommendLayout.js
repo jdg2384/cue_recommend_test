@@ -3,6 +3,7 @@ import QuestionsStore from "../../stores/QuestionsStore";
 import "../Users/CompanyEditForm.css"
 import * as RecommendAction from "../../actions/RecommendAction.js";
 import IndustryForm from './IndustryForm'
+import PriceForm from './PriceForm'
 
 class RecommendLayout extends Component {
     constructor(props) {
@@ -21,12 +22,23 @@ class RecommendLayout extends Component {
       this.setState({answer: QuestionsStore.getState()});
     }
 
+    renderQuestions(){
+      console.log('renderQuestion fn = ',!this.state.answer.size)
+      if(!this.state.answer.size){
+        return <IndustryForm/>
+      }
+      else{
+        return <PriceForm/>
+      }
+    }
+
   
   render() {
-    console.log('render', this.state)
+    const { answer } = this.state
+    // console.log('render', answer)
       return (
         <div className="recommend-bg">
-          <IndustryForm/>
+          {this.renderQuestions()}
         </div>
       );
     }
