@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import QuestionsStore from "../../stores/QuestionsStore";
 import "../Users/CompanyEditForm.css"
 import * as RecommendAction from "../../actions/RecommendAction.js";
-import IndustryForm from './IndustryForm'
-import PriceForm from './PriceForm'
+// Forms
+import SizeForm from './SizeForm';
+import PriceForm from './PriceForm';
+import IndustryForm from './IndustryForm';
+import FeaturesForm from './FeaturesForm';
+import BaseSuzie from './BaseSuzie'
 
 class RecommendLayout extends Component {
 
@@ -24,20 +28,26 @@ class RecommendLayout extends Component {
   }
 
   renderQuestions(){
-    console.log('renderQuestion fn = ',!this.state.answer.size)
     if(!this.state.answer.size){
+      return <SizeForm/>
+    }
+    else if (!this.state.answer.price){
+      return <PriceForm/>
+    }
+    else if (!this.state.answer.industry){
       return <IndustryForm/>
     }
     else{
-      return <PriceForm/>
+      return <FeaturesForm/>
     }
   }
 
   render() {
-    const { answer } = this.state
+    console.log('state', this.state)
       return (
         <div className="recommend-bg">
-          {this.renderQuestions()}
+          {/* {this.renderQuestions()} */}
+          <BaseSuzie />
         </div>
       );
     }

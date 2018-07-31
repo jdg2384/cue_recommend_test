@@ -5,7 +5,7 @@ class QuestionsStore extends EventEmitter {
   constructor () {
     super()
     this.state = {
-        size:'blah',
+        size:'',
         industry:'',
         price:'',
         features:[]
@@ -17,16 +17,14 @@ class QuestionsStore extends EventEmitter {
   }
   
   handleActions(action) {
-    const { size, industry, price, feature } = this.state
-    // console.log('before switch', this.state)
     switch (action.type) {
       case 'POST_ANSWER': {
-        this.state.size = action.data.value.size
+        this.state = Object.assign({}, this.state ,action.data.value)
         this.emit('post_answer')
         break
       }
     }
-    // console.log('after switch', this.state)
+    // console.log('after switch', action.data.value)
   }
 }
 

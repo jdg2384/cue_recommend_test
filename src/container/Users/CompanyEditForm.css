@@ -1,8 +1,24 @@
-.recommend-bg{
-background: linear-gradient(to right, #0575e6, #021b79); 
-height: 100vh;  
+.recommend-wrap{
+background: linear-gradient(#003a70, #326195);
+height: 100vh;
+color: white;  
+display: flex;
+justify-content: center;
+flex-direction: column;
+padding: 50px
 }
 
+form{
+    margin: 0 auto -10px;
+    width: 50%;
+    border: solid;
+    border-width: 4px;
+    border-color: #FF9E1B; 
+    /* margin-bottom: 60px; */
+}
+.suzie {
+    height: 500px;
+}
 
 .container_one{
     border: 1px #ccc solid;
@@ -14,7 +30,7 @@ height: 100vh;
     align-items: center;
     /* flex-direction: column; */
 }
-.box1{
+/* .box1{
     border: 1px #ccc solid;
     background-color: aquamarine;
     margin:10px;
@@ -36,4 +52,4 @@ height: 100vh;
     margin:10px;
     padding: 10px;
     flex: 4;
-}
+} */
